@@ -1,0 +1,59 @@
+body{
+  background-image: url("/img/ME-026-Medieval-Village-1.jpg");
+  background-repeat:no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+#form-container{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    position: absolute;
+    translate: -50% -50%;
+    top: 50%;
+    left: 50%;
+    background-image: url("/img/8301.jpg");
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 2px 5px 20px 1px;
+    input{
+        padding: 10px;
+    }
+    h1{
+        color: white;
+    }
+}
+
+#Chevalier1{
+    img{
+        width: 200px;
+    }
+}
+
+#Chevalier2{
+    img{
+        width: 120px;
+    }
+}
+
+.Knights{
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: auto;
+    padding-top: 40vh;
+}
+
+.dnone{
+    display: none;
+}
+
+
