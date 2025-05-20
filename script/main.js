@@ -8,8 +8,6 @@ const listChevalier = [];
 let message = document.getElementById("event");
 
 
-
-
 class Chevalier{
     constructor(name,strength,magic){
         this.name = name;
@@ -20,7 +18,11 @@ class Chevalier{
         this.potions = 2;
     }
     shout(){
-        message.innerHTML += `Je m'appelle ${this.name}<br>`
+         if(this.isDead()){
+            message.innerHTML += `${this.name} est mort !<br>`
+            return
+        }
+        message.innerHTML += `Je m'appelle ${this.name}<br>`;
 
     }
     
@@ -30,7 +32,7 @@ class Chevalier{
             return
             
         }
-        message.innerHTML = `${this.name} attaque ${cible.name} à l'épée !`
+        message.innerHTML += `${this.name} attaque ${cible.name} à l'épée !<br>`
         cible.getDamages(this.strength)
         
     }
@@ -42,7 +44,8 @@ class Chevalier{
         }
         if (this.mana > 20){
             this.mana -= 20;
-            message.innerHTML = `${this.name} attaque ${cible.name} avec une boule de feu !<br>`;
+            cible.getDamages(this.magic);
+            message.innerHTML += `${this.name} attaque ${cible.name} avec une boule de feu !<br>`;
               
         }
         else{
@@ -92,6 +95,19 @@ function resetForm(){
     KnightName.value = '';
     strenght.value = '';
     magic.value = '';
+}
+
+function checkDoubleName(name){
+    const mappedListe = listChevalier.map((element) => {
+        return element.name;
+    })
+    if(mappedListe.includes(name)){
+        return true;
+    }
+    else{
+        return false;
+    }
+
 }
 
 function fillInfo(knight,container){
@@ -157,11 +173,15 @@ function display(){
 }
 
 
-
 createButton.addEventListener("click",(e) =>{
     e.preventDefault();
     if(!KnightName.value || !strenght.value || !magic.value) {
         alert("Veuillez remplir tout les champs !")
+        return
+    }
+
+    if (checkDoubleName(KnightName.value)){
+        alert("This name already exist !")
         return
     }
 
@@ -173,7 +193,6 @@ createButton.addEventListener("click",(e) =>{
     
     
 })
-
 
 
 actionButton.addEventListener("click",(event) =>{
