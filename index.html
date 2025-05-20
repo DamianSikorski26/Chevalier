@@ -10,26 +10,41 @@
 <body>
     
     <div id="form-container">
-        <h1>Créer le 1er Chevalier :</h1>
+        <h1>Créer le Chevalier :</h1>
         <input type="text" id="name" placeholder="Nom du Chevalier">
         <input type="number" min="0" id="strength" placeholder="Force">
         <input type="number" min="0" id="magic" placeholder="Magie">
         <input type="submit" value="Créer">
     </div>
 
-    
-    <div class="Knights dnone">
-        <div class="KnightContainer" id="Chevalier1">
-            <img src="img/vecteezy_knight-sword-lightning-fantasy-art_56221664.png" alt="img
-            ">
-            <div class="KnightInfo">
+    <p id=event>
+        
+    </p>
+    <div id="actions">
+        <label for="action">Action</label>
+        <select name="Action" id="action">
+            <option value="atq">Attaque épée</option>
+            <option value="atqMag">Attaque Magique</option>
+            <option value="potion">Potion</option>
+        </select>
+        
+        <label for="attaquant">Attaquant</label>
+        <select name="attaquant" id="attaquant">
 
-            </div>
-        </div>
-        <div class="KnightContainer" id="Chevalier2">
-            <img src="img/vecteezy_knight-clipart-design-illustration_9342657.png" alt="img">
-        </div>
+            
+        </select>
+        <label for="cible">Cible</label>
+        <select name="cible" id="cible">
+            
+        </select>
+        <input type="submit" value="Agir" id="agir">
     </div>
+
+    <div class="knightsContainer">
+
+    </div>
+
+    
     
     
 </body>
