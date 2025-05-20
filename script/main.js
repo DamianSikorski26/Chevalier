@@ -33,7 +33,7 @@ class Chevalier{
             
         }
         message.innerHTML += `${this.name} attaque ${cible.name} à l'épée !<br>`
-        cible.getDamages(this.strength)
+        cible.getDamages(this.strength);
         
     }
 
@@ -60,8 +60,10 @@ class Chevalier{
             return
             
         } 
-        if (this.potions <= 0)
-            return false
+        if (this.potions <= 0){
+            message.innerHTML += `${this.name} n'a plus de potions !<br>`
+            return 
+        }
         if (this.life + 30 > 100){
             this.life = 100;
             this.potions -= 1;
@@ -74,7 +76,7 @@ class Chevalier{
     }
     isDead(){
         if(this.life <= 0){
-            message.innerHTML += `${this.name} est mort !<br>`
+            
             return true
             
         }
@@ -200,7 +202,7 @@ actionButton.addEventListener("click",(event) =>{
 
     
 
-    if (listChevalier[attaquant.value] ==  listChevalier[cible.value] || !action.value == "potion"){
+    if (listChevalier[attaquant.value] ==  listChevalier[cible.value] && action.value !== "potion"){
         message.innerHTML += `${listChevalier[attaquant.value].name} ne peut pas s'attaquer lui même !<br>`;
         return;
     }
