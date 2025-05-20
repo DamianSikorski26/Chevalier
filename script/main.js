@@ -200,7 +200,7 @@ actionButton.addEventListener("click",(event) =>{
 
     
 
-    if (listChevalier[attaquant.value] ==  listChevalier[cible.value]){
+    if (listChevalier[attaquant.value] ==  listChevalier[cible.value] || !action.value == "potion"){
         message.innerHTML += `${listChevalier[attaquant.value].name} ne peut pas s'attaquer lui même !<br>`;
         return;
     }
